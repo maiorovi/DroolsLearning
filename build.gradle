@@ -5,10 +5,25 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.5
 
+def droolsVersion = "6.3.0.Final"
+def jbpmVersion = "6.3.0.Final"
+
 repositories {
-    mavenCentral()
+   maven {
+       mavenCentral()
+       url "https://repository.jboss.org/nexus/content/repositories/releases"
+   }
+
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "org.drools:knowledge-api:$droolsVersion"
+    compile "org.drools:drools-core:$droolsVersion"
+    compile "org.drools:drools-compiler:$droolsVersion"
+    compile "org.jbpm:jbpm-flow:$jbpmVersion"
+    compile "org.jbpm:jbpm-flow-builder:$jbpmVersion"
+    compile "org.jbpm:jbpm-bpmn2:$jbpmVersion"
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'org.slf4j:slf4j-simple:1.7.13'
 }
